@@ -377,11 +377,12 @@ class BoardState:
         b = [Outer] * 100
         for sq in All_Squares:
             b[sq] = Empty
-##        b[44] = White; b[45] = Black;
-##        b[54] = Black; b[55] = White;
-        b[44] = White; b[55] = White; b[66] = White;
-        b[45] = Black; b[54] = Black; b[56] = Black;
+        b[44] = White; b[45] = Black;
+        b[54] = Black; b[55] = White;
+        # b[44] = White; b[55] = White; b[66] = White;
+        # b[45] = Black; b[54] = Black; b[56] = Black;
         self._board = b
+       #print(str(b) + str((len(b))))
 
         self.to_move = Black   # Black has the first move
         self._moves = self.calculate_legal_moves()
@@ -444,6 +445,7 @@ class BoardState:
         if len(moves) == 0:
             moves.append(None)
             # print "appending None to indicate no legal moves"
+        #print(moves)
         return moves
 
     def make_flips(self, move, player, dir):
